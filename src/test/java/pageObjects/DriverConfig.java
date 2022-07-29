@@ -1,4 +1,4 @@
-package stepdefs;
+package pageObjects;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -14,9 +14,10 @@ import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import util.ConfigUtil;
 
-public class Shared {
-	public RemoteWebDriver driver;
-	public WebDriverWait wait;
+public class DriverConfig {
+	
+	private RemoteWebDriver driver;
+	private WebDriverWait wait;
 	
 	public Properties properties;
 	
@@ -26,8 +27,7 @@ public class Shared {
 		properties = ConfigUtil.getInstance().getProperties();
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(properties.getProperty("url"));
 	}
 	
@@ -35,7 +35,6 @@ public class Shared {
 	public void Method2(Scenario s)
 	{
 		properties = null;
-		driver.close();
 	}
 
 }

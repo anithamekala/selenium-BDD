@@ -5,12 +5,12 @@ import java.io.IOException;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TestUtil {
+public class DriverUtil {
 
 	private RemoteWebDriver driver;
 	private WebDriverWait wait;
     
-    public TestUtil() {   
+    public DriverUtil() {   
     	driver = null;
     	wait = null;
     }
